@@ -12,6 +12,7 @@ Creation of API with FastAPI, MySQL and Docker
     - cd env
     - .\Scripts\activate
     - cd ..
+```
 
 - Install the requirements.txt
     - pip install -r requirements.txt
