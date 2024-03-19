@@ -14,5 +14,7 @@ Creation of API with FastAPI, MySQL and Docker
     - cd ..
 ```
 
-- Install the requirements.txt
-    - pip install -r requirements.txt
+- Run the app with docker: 
+    - docker-compose up --build
+    - go to: http://localhost:8000/api/data
+

@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    build: ./api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    environment:
+      - DATABASE_URL=host=mysql user=root password=root database=db_apifast
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_apifast
