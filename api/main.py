@@ -1,10 +1,10 @@
 import mysql.connector
 from fastapi import FastAPI
 
-from .config import DATABASE_URL
-from .endpoints import router as digimon_router
+from config import DATABASE_URL
+from endpoints import router as digimon_router
 
-from .websocket import websocket_endpoint
+from websocket import websocket_endpoint
 
 app = FastAPI()
 

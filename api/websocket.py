@@ -1,5 +1,5 @@
 from fastapi import WebSocket
-from .config import DATABASE_URL
+from config import DATABASE_URL
 import mysql.connector
 
 # WebSocket to view data similar to first endpoint
