@@ -1,6 +1,8 @@
 # API_FastApi_Docker
 Creation of API with FastAPI, MySQL and Docker
 
+API used for this application: "https://digimon-api.vercel.app/api/digimon"
+
 ## How to run my project
 
 - Clone this project using  http:
