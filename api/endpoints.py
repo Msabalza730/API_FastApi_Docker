@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+from typing import List, Dict
 import requests
 import mysql.connector
 
@@ -25,7 +26,7 @@ class DigimonData(BaseModel):
 
 
 @router.get("/api/digimon")
-def get_and_store_digimon_data():
+def get_and_store_digimon_data() -> Dict[str, str]:
     """
     Enpoint to get data from Digimon API and store into local BD
     """
@@ -67,7 +68,7 @@ def get_digimon_by_id(id: int):
 
 
 @router.post("/api/digimon")
-def add_digimon(digimon_data: DigimonData):
+def add_digimon(digimon_data: DigimonData) -> Dict[str, str]:
     """
     Endpoint to add a new Digimon to the database
     """
