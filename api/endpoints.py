@@ -21,7 +21,7 @@ class DigimonData(BaseModel):
     """
     name: str
     img: str
-    lvl: str
+    level: str
 
 
 @router.get("/api/digimon")
@@ -36,8 +36,8 @@ def get_and_store_digimon_data():
 
         if digimon_data:
             for digimon in digimon_data:
-                insert_query = "INSERT INTO digimon (name, img, lvl) VALUES (%s, %s, %s)"
-                values = (digimon["name"], digimon["img"], digimon["lvl"])
+                insert_query = "INSERT INTO digimon (name, img, level) VALUES (%s, %s, %s)"
+                values = (digimon["name"], digimon["img"], digimon["level"])
                 db_cursor.execute(insert_query, values)
 
             db_connection.commit()
@@ -59,21 +59,21 @@ def get_digimon_by_id(id: int):
         db_cursor.execute(query, values)
         result = db_cursor.fetchone()
         if result:
-            return {"id": result[0], "name": result[1], "img": result[2], "lvl": result[3]}
+            return {"id": result[0], "name": result[1], "img": result[2], "level": result[3]}
         else:
             return {"error": "The Digimon with that ID was not found"}
     except Exception as e:
         return {"error": f"Error getting and storing Digimon data: {str(e)}"}
 
 
-@router.post("/api/data")
+@router.post("/api/digimon")
 def add_digimon(digimon_data: DigimonData):
     """
     Endpoint to add a new Digimon to the database
     """
     try:
-        insert_query = "INSERT INTO digimon (name, img, lvl) VALUES (%s, %s, %s)"
-        values = (digimon_data.name, digimon_data.img, digimon_data.lvl)
+        insert_query = "INSERT INTO digimon (name, img, level) VALUES (%s, %s, %s)"
+        values = (digimon_data.name, digimon_data.img, digimon_data.level)
         db_cursor.execute(insert_query, values)
         db_connection.commit()
         return {"message": "Digimon successfully added to database"}
